@@ -39,22 +39,24 @@ def plot_map(caminos=None, municipio=None):
 def main():
     st.set_page_config(layout="wide")
 
+
     st.title("Mapa Vial - C.C. 033 - CAÑADA DE RIO PINTO")
 
     # Cargar capas
     caminos = gpd.read_file("assets/archivos-vectorial/gdf_consorcio_crp.json")
     municipio = gpd.read_file("assets/archivos-vectorial/radio_municipio_sarmiento.geojson")
+    # Asegurar que los datos estén en el CRS correcto (WGS84 - EPSG:4326)
     if caminos.crs is None:
-        caminos = caminos.set_crs("EPSG:22174")  # CRS original de tus datos
+        caminos = caminos.set_crs("EPSG:22174")  # CRS original de los datos
         caminos = caminos.to_crs("EPSG:4326")
     if municipio.crs is None:
-        municipio = municipio.set_crs("EPSG:22174")  # CRS original de tus datos
+        municipio = municipio.set_crs("EPSG:22174")  # CRS original de los datos
         municipio = municipio.to_crs("EPSG:4326")
 
     # Opciones de visualización
     st.sidebar.header("Capas disponibles")
     mostrar_caminos = st.sidebar.checkbox("Mostrar Red Vial", True)
-    mostrar_municipio = st.sidebar.checkbox("Mostrar Jurisdicción", True)
+    mostrar_municipio = st.sidebar.checkbox("Mostrar Jurisdicción de Sarmiento", True)
     
 
     # Generar mapa con capas seleccionadas
@@ -64,19 +66,19 @@ def main():
 
     )
 
-    # Línea roja: Red Vial
+   
     st.header("Referencias del mapa")
-
+     # Línea roja: Red primaria 
     st.markdown("""
     <span style="display:inline-block; width: 20px; height: 3px; background-color:red; margin-right:5px;"></span>
     Red primaria
     """, unsafe_allow_html=True)
-
+    # Línea amarilla: Red secundaria
     st.markdown("""
     <span style="display:inline-block; width: 20px; height: 3px; background-color:yellow; margin-right:5px;"></span>
     Red secundaria
     """, unsafe_allow_html=True)
-
+    # Línea naranja: Red terciaria
     st.markdown("""
     <span style="display:inline-block; width: 20px; height: 3px; background-color:orange; margin-right:5px;"></span>
     Red terciaria
