@@ -3,6 +3,9 @@ import geopandas as gpd
 from streamlit_folium import st_folium
 import folium
 
+
+
+
 def plot_map(caminos=None, municipio=None):
     """Genera un mapa folium con hasta 3 capas fijas"""
     m = folium.Map(location=[-30.7777517, -64.3105173], zoom_start=10, tiles="CartoDB positron")
@@ -133,10 +136,29 @@ def main():
     **Especialidad:** Análisis de datos, SIG y desarrollo de aplicaciones en Python  
     """)
 
+    st.markdown("---")
+    st.subheader("Colaboración")
+
+    st.markdown("""
+    Esta aplicación es gratuita.  
+    Si resulta útil para su trabajo, puede colaborar con su mantenimiento y evolución.
+    """)
+
+    st.markdown("""
+    **Brubank**  
+    Alias:
+    """)
+    st.code("renzoreyna")
+
+
+
     st.markdown("### Contacto")
     st.markdown("Teléfono: +54 3252 62-0842")
     st.markdown("Email: reynarenzo.88@gmail.com")
     st.markdown("Domicilio: INDEPENDENCIA 0, SARMIENTO, CÓRDOBA, ARGENTINA")
+
+
+
 
     st.markdown("""
                 <div style='text-align: center;'>
