@@ -68,7 +68,8 @@ def main():
     )
 
    
-    st.header("Referencias del mapa vial - Consorcio Caminero C.C. 033 – Cañada de Río Pinto")
+    st.header("Mapa vial - Consorcio Caminero C.C. 033 – Cañada de Río Pinto")
+    st.subheader("Referencias del mapa")
      # Línea roja: Red primaria 
     st.markdown("""
     <span style="display:inline-block; width: 20px; height: 3px; background-color:red; margin-right:5px;"></span>
