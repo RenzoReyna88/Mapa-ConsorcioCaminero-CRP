@@ -37,10 +37,11 @@ def plot_map(caminos=None, municipio=None):
     return m
 
 def main():
-    st.set_page_config(layout="wide")
-
-
-    st.title("Mapa Vial - C.C. 033 - CAÑADA DE RIO PINTO")
+    st.set_page_config(
+    page_title="Mapa vial del Consorcio Caminero C.C. 033 – Cañada de Río Pinto",
+    page_icon="🗺️",
+    layout="wide",
+)
 
     # Cargar capas
     caminos = gpd.read_file("assets/archivos-vectorial/gdf_consorcio_crp.json")
@@ -67,7 +68,7 @@ def main():
     )
 
    
-    st.header("Referencias del mapa")
+    st.header("Referencias del mapa vial")
      # Línea roja: Red primaria 
     st.markdown("""
     <span style="display:inline-block; width: 20px; height: 3px; background-color:red; margin-right:5px;"></span>
@@ -114,7 +115,7 @@ def main():
     st.markdown("</div>", unsafe_allow_html=True)
 
 
-    st.header("La tecnología como herramienta para la gestión vial y la planificación territorial")
+    st.header("Gestión vial rural y planificación territorial con mapas interactivos personalizables")
     st.markdown("""
     Esta herramienta interactiva permite visualizar la **red vial del Consorcio Caminero C.C. 033 - Cañada de Río Pinto**, 
     la **jurisdicción del municipio de Sarmiento**, y potencialmente las **Zonas productivas**.  
@@ -126,6 +127,10 @@ def main():
     """)
 
     st.markdown("---")
+    st.markdown("""
+    **Autor:** Renzo Gerardo Reyna  
+    **Especialidad:** Análisis de datos, SIG y desarrollo de aplicaciones en Python  
+    """)
 
     st.markdown("### Contacto")
     st.markdown("Teléfono: +54 3252 62-0842")
